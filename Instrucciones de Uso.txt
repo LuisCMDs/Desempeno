@@ -1,0 +1,16 @@
+Intrucciones de Uso
+Requisitos
+
+MariaDB 10.x o MySQL 8.x
+Cliente SQL: HeidiSQL, MySQL Workbench o DBeaver
+
+Paso 1 — Ejecutar el script principal
+Copiar y ejecutar el script de la sección Script de la Base de Datos. Crea la base de datos, todas las tablas, índices y datos de prueba.
+
+Paso 2- Antes de ejecutar los eventos
+Copiar y ejecutar el script de las tablas de soporte para que funcionen los eventos
+
+Paso 3— Ejecutar los Eventos
+Copiar y ejecutar cada procedimiento de la sección Script de Eventos por separado desde DELIMITER $$ hasta DELIMITER ;
+En HeidiSQL: seleccionar el bloque completo de cada procedimiento y presionar F9.
+
