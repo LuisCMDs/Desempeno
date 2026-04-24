@@ -1,6 +1,6 @@
 # Desempeno
 
-# SCRIPT BASE DE DATOS
+# SCRIPT BASE DE DATOSS
 CREATE DATABASE Lawfirm;
 USE Lawfirm;
 
