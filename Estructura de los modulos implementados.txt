@@ -1,0 +1,62 @@
+ESTRUCTURA DE LOS MÓDULOS IMPLEMENTADOS
+
+Módulo 1 — Tablas de Catálogo
+
+tipos_cliente: Persona Natural, Empresa
+sectores_actividad: Tecnología, Construcción, Salud
+especialidades: Civil, Penal, Laboral, Tributario, Mercantil
+tipos_caso: Contencioso, Consultivo
+ramas_derecho: Civil, Penal, Laboral
+estados_caso: Activo, Cerrado, En espera, Ganado, Perdido, Conciliado
+tipos_actuacion: Audiencia, Diligencia, Notificacion, Recurso, Alegato
+tipos_documento: Contrato, Demanda, Recurso, Informe, Dictamen
+estados_documento: Borrador, Revisión, Final
+tipos_audiencia: Inicial, Pruebas, Alegatos, Sentencia
+estados_pago: Pendiente, Pagado, Vencido
+tipos_material: Libro, Revista, Artículo
+formatos_material: Físico, Digital
+
+Módulo 2 — Tablas Principales
+Entidades centrales del sistema:
+
+clientes: datos, contacto, clasificación y sector del cliente
+abogados: colegiatura, especialidad, experiencia y tarifa por hora
+casos: título, tipo, rama, juzgado, expediente y estado
+actuaciones: actuaciones procesales vinculadas a un caso
+documentos: documentos legales con versión y confidencialidad
+audiencias: audiencias programadas con propósito y resultado
+facturas: facturación por cliente con subtotal, impuestos y total
+precedentes: jurisprudencia de referencia
+materiales_biblioteca: libros y recursos jurídicos del bufete
+conocimientos: base de conocimiento legal del bufete
+
+Módulo 3 — Tablas Intermedias
+Gestionan relaciones M:M y atributos multivaluados
+
+caso_abogado: abogados asignados a un caso (principal/secundario)
+participantes_audiencia: participantes internos y externos de audiencias
+factura_caso: casos incluidos en una factura
+factura_detalle: desglose de horas y tarifas por abogado
+actuacion_documento: documentos asociados a actuaciones
+destinatario_documento: destinatarios internos y externos de documentos
+idiomas_abogado: idiomas que domina cada abogado
+material_prestamo: historial de préstamos de la biblioteca
+conocimiento_experto: conocimientos asociados a abogados expertos
+conocimiento_documento: conocimientos respaldados por documentos
+conocimiento_precedente: conocimientos vinculados a precedentes judiciales
+
+Módulo 4 — Índices
+
+idx_casos_cliente: índice simple sobre casos(ID_cliente)
+idx_casos_estado: índice simple sobre casos(ID_estado)
+idx_casos_cliente_estado: índice compuesto sobre casos(ID_cliente, ID_estado)
+idx_fact_cliente_estado: índice compuesto sobre facturas(ID_cliente, ID_estado)
+idx_u_caso_abogado: índice único sobre caso_abogado(ID_caso, ID_abogado)
+idx_u_factura_caso: índice único sobre factura_caso(ID_factura, ID_caso)
+
+Módulo 5 - Eventos
+EVT_VerificarVencimientosPlazos: Verifica diariamente plazos legales próximos a vencer.
+EVT_GenerarReporteHorasTrabajadas: Genera reportes de horas trabajadas por abogado.
+EVT_ActualizarJurisprudenciaRelevante: Actualiza la base de datos de jurisprudencia.
+EVT_MonitorearCobroFacturas: Monitorea el estado de cobro de facturas.
+EVT_VerificarCargaTrabajo: Analiza la carga de trabajo de los abogados para equilibrarla.
