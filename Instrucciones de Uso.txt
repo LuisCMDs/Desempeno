@@ -1,5 +1,5 @@
 Intrucciones de Uso
-Requisitos
+Requisitos:
 
 MariaDB 10.x o MySQL 8.x
 Cliente SQL: HeidiSQL, MySQL Workbench o DBeaver
